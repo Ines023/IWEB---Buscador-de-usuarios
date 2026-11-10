@@ -1,14 +1,19 @@
 import { useState } from 'react'
 import './App.css'
 
+import {mock1} from './constants/users.js'
+
+
 import Header from './Header.jsx'
+import Resultados from './Resultados.jsx'
 
 function App() {
   const [query, setQuery] = useState('')
   const [resultado, setResultado] = useState([])
 
   const callServer = () => {
-    console.log('Buscando usuarios con query: ' + query)
+    const users = mock1.users
+    setResultado(users.filter(user => user.firstName.toLowerCase().includes(query.toLowerCase())))
   }
 
   return (
@@ -20,7 +25,7 @@ function App() {
         <button id="botonsearch" onClick={() => callServer()}>Buscar</button>
         <button>Ver todos</button>
       </div>
-
+      {resultado && <Resultados resultado={resultado} />}
     </div>
   )
 }
