@@ -2,7 +2,7 @@ export const mock1 = {
   "users":[
      {
         "id":11,
-        "firstName":"Marcel",
+        "firstName":"Inéeees",
         "lastName":"Jones",
         "maidenName":"Smith",
         "age":39,
